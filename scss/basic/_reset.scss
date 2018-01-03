@@ -30,6 +30,6 @@ q:after{
 
 *:focus{ outline: 0; }
 
-*, *:before, *:after{
-    box-sizing: border-box;
-}
+*, *:before, *:after{ box-sizing: border-box; }
+
+*:before, *:after{ pointer-events: none; }

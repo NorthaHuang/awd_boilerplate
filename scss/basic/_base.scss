@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-/*==================================================
-                  Functional Class
-==================================================*/
-
 /*** Clearfix ***/
 .c{ 
     clear: both; 
@@ -13,8 +9,6 @@
     display: block;
     clear: both;
 }
-
-.hide{ display: none; }
 
 
 
@@ -42,7 +36,6 @@ html {
 /*** Common ***/
 a{
     text-decoration: none; 
-    transition: all .1s ease-out;
     color: inherit;
 
     display: block; 
