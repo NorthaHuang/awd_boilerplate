@@ -1,11 +1,27 @@
 @charset "utf-8";
 
-/*---------- Basic ----------*/
+/*========== Basic ==========*/
 @import "basic/_reset";
 @import "basic/_variable";
+
+
+
+/*========== Mixin ==========*/
+@import "mixin/_mixin";
+
+
+
+/*========== Includes ==========*/
+@import "includes/_header";
+@import "includes/_footer";
+@import "includes/_loading";
+
+
+
+/*========== Lightbox ==========*/
+@import "lightbox/_lightbox";
+
+
+
+/*========== Layout ==========*/
 @import "basic/_base";
-
-/*---------- Functional ----------*/
-@import "_mixin";
-
-/*---------- Layout ----------*/
