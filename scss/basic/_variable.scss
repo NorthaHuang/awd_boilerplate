@@ -1,5 +1,6 @@
-@charset "utf-8";
-
-/*** Font ***/
-$font-stack: Helvetica, Arial, "微軟正黑體", "蘋果儷黑體", "新細明體", Verdana, sans-serif;
+/*==================================================*\
+        SCSS Variables
+\*==================================================*/
+/***** Font *****/
+$fontStack: "微軟正黑體", "蘋果儷黑體", Helvetica, Arial, Verdana, sans-serif, "新細明體";
 $setFz: 16px;
