@@ -1,0 +1,25 @@
+/*==================================================*\
+        Lightbox
+\*==================================================*/
+
+.lightbox {
+    @include fullPopup(rgba(0, 0, 0, 0.78));
+    z-index: z("lightbox");
+}
+
+// Content Container
+.lbContainer {
+    position: relative;
+}
+
+// Button: Close Lightbox
+.closeLbBtn {
+    /* 請設定寬高 */
+    // @include wh(50px);
+
+    position: absolute;
+    bottom: 100%; left: 100%;
+
+    /* 可於 _mods.scss 選擇欲 @extend 之 hover樣式 */
+    // @extend %closeBtnHover1;
+}

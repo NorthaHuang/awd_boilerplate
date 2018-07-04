@@ -8,26 +8,50 @@
     <title>Your Title</title>
 
     <!-- CSS -->
+    <!-- <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="css/slick.min.css" />
+    <link rel="stylesheet" href="css/slick-theme.min.css" /> -->
     <link rel="stylesheet" href="css/style.min.css" />
 
-    <!-- Favicon for Chrome -->
-    <link rel="icon" type="image/ico" href="images/favicon.ico" />
+    <!-- Favicon  -->
+    <!-- <link rel="icon" type="image/ico" href="images/favicon.ico" /> -->
 </head>
 
 <body>
     <!-- Loading -->
-    <!-- <div class="loading"></div> -->
+    <!-- <div class="loading">
+        <div class="ldContainer">
+            <div>G</div>
+            <div>N</div>
+            <div>I</div>
+            <div>D</div>
+            <div>A</div>
+            <div>O</div>
+            <div>L</div>
+        </div>
+    </div> -->
 
     <!-- Header, Source: "includes/_header.html" -->
-    <header></header>
+    <header class="siteHeader"></header>
 
-    <!--========== Main Content ==========-->
+    <!--========== Main Container ==========-->
     <main>
         <!-- Start Coding Here -->
+        <div class="player" data-youtube="M7lc1UVf-VE"></div>
+        <img src="http://hdwpro.com/wp-content/uploads/2017/01/3D-Cool-Image.jpg" alt="">
+        <img src="https://images.pexels.com/photos/207171/pexels-photo-207171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
     </main>
 
     <!-- Footer, Source: "includes/_footer.html" -->
-    <footer></footer>
+    <footer class="siteFooter"></footer>
+
+    <!-- Lightbox -->
+    <!-- <div class="lightbox">
+        <div class="lbContainer">
+            <div class="lbContent"></div>
+            <div class="_mod_closeBtn closeLbBtn"></div>
+        </div>
+    </div> -->
 
     <!-- Orientation Change -->
     <!-- <div class="orientationChange"></div> -->
@@ -37,10 +61,11 @@
     <!--========== Javascript ==========-->
     <script type="text/javascript" src="js.lib/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js.lib/imagesloaded.js"></script>
+    <script type="text/javascript" src="js.lib/youtube_api.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
-    <!-- IE9 以下例外處理 -->
-    <!--[if lt IE 9]><h1 class="forIE8Less" style="margin-top:100px;text-align:center;">本網頁不支援 IE9 以下版本，建議使用 Chrome 瀏覽器或請更新瀏覽器版本。</h1><style>body>*{display: none;}.forIE8Less{display:block;}</style><![endif]-->
+    <!-- IE9 以下，提醒使用者 更新 / 切換瀏覽器 -->
+    <!--[if lt IE 9]><h1 class="forIE8Less" style="margin-top:100px;text-align:center;">本網頁不支援 IE9 以下版本，請更新瀏覽器版本或建議使用 Chrome 瀏覽器。</h1><style>body>*{display: none;}.forIE8Less{display:block;}</style><![endif]-->
 </body>
 
 </html>

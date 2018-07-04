@@ -2,18 +2,24 @@
 
 /*========== Basic ==========*/
 @import "basic/_reset";
-@import "basic/_variable";
+@import "basic/_variables";
 
 
 
 /*========== Mixin ==========*/
-@import "mixin/_mixin";
+@import "mixin/_mixins";
+@import "mixin/_functions";
+
+
+
+/*========== Modules ==========*/
+@import "modules/_mods";
 
 
 
 /*========== Includes ==========*/
-@import "includes/_header";
-@import "includes/_footer";
+@import "includes/_site_header";
+@import "includes/_site_footer";
 @import "includes/_loading";
 
 
@@ -23,5 +29,5 @@
 
 
 
-/*========== Layout ==========*/
+/*========== layout ==========*/
 @import "layout/_common";
