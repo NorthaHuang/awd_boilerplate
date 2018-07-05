@@ -61,9 +61,9 @@
         console.log('%cBuild Completed!', logSafeStyle);
         
         // Remove Loading Layer
-        $('.loading').fadeOut(STD_DURATION, function () {
-            $(this).remove();
-        });
+        // $('.loading').fadeOut(STD_DURATION, function () {
+        //     $(this).remove();
+        // });
 
         // Resize
         $win.on('resize', _resize).resize();

@@ -1,33 +1,23 @@
-@charset "utf-8";
-
+@charset "UTF-8";
 /*========== Basic ==========*/
+
 @import "basic/_reset";
 @import "basic/_variables";
-
-
-
 /*========== Mixin ==========*/
+
 @import "mixin/_mixins";
 @import "mixin/_functions";
-
-
-
 /*========== Modules ==========*/
+
 @import "modules/_mods";
-
-
-
 /*========== Includes ==========*/
+
 @import "includes/_site_header";
 @import "includes/_site_footer";
 @import "includes/_loading";
-
-
-
 /*========== Lightbox ==========*/
+
 @import "lightbox/_lightbox";
-
-
-
 /*========== layout ==========*/
+
 @import "layout/_common";
