@@ -33,14 +33,13 @@
         background: true
       })
       .always(mainFunction) // Go Main Function
-      .fail(function () {
-        console.log('%cSome Images is broken...', logErrorStyle);
-      })
-      .progress(function (instance) {
-        imgProgressNum++;
-        // instance.elements.length 為 '所有圖片總數'
-        console.log('%c' + imgProgressNum + '/' + instance.elements.length, logInfoStyle);
-      });
+      // .fail(function () {
+      //   console.log('%cSome Images is broken...', logErrorStyle);
+      // })
+      // .progress(function (instance) {
+      //   imgProgressNum++;
+      //   console.log('%c' + imgProgressNum + '/' + instance.elements.length, logInfoStyle);
+      // });
   }
 
 
@@ -55,7 +54,7 @@
     console.log('%cBuild Completed!', logSafeStyle);
 
     // 綁定 lightbox 相關按鈕
-    lightbox.init();  
+    // lightbox.init();  
     
     // Resize
     $win.on('resize', _resize).resize();
