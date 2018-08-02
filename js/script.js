@@ -1,8 +1,7 @@
-(function ($) {
+(function () {
   'use strict'; // 採用嚴格模式
 
   /*==================== Vaiables ====================*/
-
   // Constant
   var STD_DURATION = 300;
 
@@ -11,28 +10,83 @@
 
 
   /*==================================================*\
-          Initialization
+          Includes Build
   \*==================================================*/
-  console.log('%cStart Build...', logInfoStyle);
+  var includesLoader = {
+    /*==================== Properties ====================*/
+    /***** Settings *****/
+    root: './includes/',
+    defaultType: '.html',
+    // 下載完畢後要進入的正式 Function 名稱
+    callbackFunc: mainFunc,
+    loadingDOMName: '.loading',
+    includesList: [
+      {
+        target: 'header',
+        fileName: '_page_header',
+        // type: '.html',  //  除非和 Default值 不同，不然不用寫
+        callback: function() {}
+      },
+      {
+        target: 'footer',
+        fileName: '_page_footer',
+        // type: '.html',  //  除非和 Default值 不同，不然不用寫
+        callback: function() {}
+      }
+    ],
 
-  // Load Header
-  $('header').load('includes/_site_header.html', _headerCallback);
+    /***** System Property (請勿隨意更動)) *****/
+    LIST_LEN: -1,
+    COUNTER: 0,
 
-  function _headerCallback() {
-    console.log('%cHeader Completed', logSafeStyle);
-    // Load Footer
-    $('footer').load('includes/_site_footer.html', _footerCallback);
-  }
 
-  function _footerCallback() {
-    console.log('%cFooter Completed', logSafeStyle);
-    console.log('%cImages Start Loading...', logInfoStyle);
 
-    var imgProgressNum = 0; // 目前下載數量
-    $('window, img').imagesLoaded({
+    /*==================== Methods ====================*/
+    init: function() {
+      console.log('%cIncludes Start Loading...', logInfoStyle);
+      includesLoader.LIST_LEN = includesLoader.includesList.length;
+
+      if(!(includesLoader.COUNTER < includesLoader.LIST_LEN)) return;
+      includesLoader.loadingIncludes();
+    },
+
+    getFullPath: function(fileName, type) {
+      var type = type || includesLoader.defaultType
+      var fullPath = includesLoader.root + fileName + type;
+      return fullPath;
+    },
+
+    loadingIncludes: function() {
+      var nowObj = includesLoader.includesList[includesLoader.COUNTER];
+      var target = nowObj.target;
+      var fullPath = includesLoader.getFullPath(nowObj.fileName);
+      var callback = nowObj.callback;
+
+      $(target).load(fullPath, function() {
+        callback();
+
+        console.log('%c' + nowObj.fileName + (nowObj.type || includesLoader.defaultType) + ' Completed', logSafeStyle);
+        
+        // 遞迴
+        includesLoader.COUNTER += 1;
+        includesLoader.COUNTER < includesLoader.LIST_LEN ? 
+          includesLoader.loadingIncludes() : 
+          includesLoader.ending();
+      });
+    },
+
+    ending: function() {
+      $body.imagesLoaded({
         background: true
       })
-      .always(mainFunction) // Go Main Function
+      .always(function() {
+        // Remove Loading Layer
+        $(includesLoader.loadingDOMName).fadeOut(STD_DURATION, function () {
+          $(this).remove();
+        });
+
+        includesLoader.callbackFunc();
+      }) // Go Main Function
       // .fail(function () {
       //   console.log('%cSome Images is broken...', logErrorStyle);
       // })
@@ -40,7 +94,13 @@
       //   imgProgressNum++;
       //   console.log('%c' + imgProgressNum + '/' + instance.elements.length, logInfoStyle);
       // });
-  }
+    }
+  };
+
+  // 開始下載 Includes
+  includesLoader.init();
+
+  
 
 
 
@@ -49,35 +109,14 @@
   /*==================================================*\
           Main Function
   \*==================================================*/
-  function mainFunction() {
+  function mainFunc() {
     /*==================== Initialization ====================*/
     console.log('%cBuild Completed!', logSafeStyle);
-
-    // 綁定 lightbox 相關按鈕
-    // lightbox.init();  
     
     // Resize
     $win.on('resize', _resize).resize();
 
-    // Remove Loading Layer
-    $('.loading').fadeOut(STD_DURATION, function () {
-        $(this).remove();
-    });
-
-
-
     /* Start Coding Here */
-
-    
-
-
-
-    /*==================== Google Analytics ====================*/
-    /*
-     * 如果有 GA 請啟用
-     * 並至 /js.lib/ga.js 修改客戶GA ID
-     */
-    // bindGABtn();
   }
 
 
@@ -95,4 +134,4 @@
     winW = $win.width();
     winH = $win.height();
   }
-})(jQuery);
+})();

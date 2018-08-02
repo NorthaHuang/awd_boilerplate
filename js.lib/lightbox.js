@@ -1,5 +1,5 @@
 var lightbox = {
-  /*==================== Property ====================*/
+  /*==================== Properties ====================*/
   /***** Settings *****/
   DURATION: 300,  // 過渡動畫時間
   folderPath: './includes/lightboxes/',  // 存放 Lightbox 內容物的資料夾
