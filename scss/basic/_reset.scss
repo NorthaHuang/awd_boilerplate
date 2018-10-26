@@ -44,7 +44,6 @@ main {
 a {
   color: inherit;
   text-decoration: none; 
-  user-select: none;
   display: block; 
 }
 
@@ -70,17 +69,28 @@ textarea {
     line-height: inherit;
     resize: none;
     appearance: none;
-    user-select: none;
     display: block;
+}
+
+// 此二 input 皆使用客製化
+input[type="checkbox"],
+input[type="radio"] {
+  @include wh(0);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: -10;
+  position: absolute;
+  top: 0; left: 0;
 }
 
 button,
 select,
 label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 // Select's arrow hidden for IE10+
 select::-ms-expand {
-    display: none;
+  display: none;
 }

@@ -195,3 +195,109 @@ $z-indexes: (
     position: fixed;
     top: 0; left: 0;
 }
+
+
+
+/*** Arrow ***/
+/**
+ *  $direction:
+ *    1: ↑
+ *    2: →
+ *    3: ↓
+ *    4: ←
+ *	example:
+ *	.element {
+ *      @include arrow($bdc: #000000);
+ *	}
+ */
+ @mixin arrow($w: 8px, $h: null, $bdw: 2px, $bdc: $colorPrimary, $direction: 1) { 
+  @if ($h == null) {
+    $h: $w;
+  }
+
+  width: $w;
+  height: $h;
+  border-width: $bdw $bdw 0 0;
+  border-style: solid;
+  border-color: $bdc;
+  position: relative;
+
+  @if($direction == 1) {
+    transform: rotate(-45deg);
+    top: $h / 3;
+  } @else if($direction == 2) {
+    transform: rotate(45deg);
+  } @else if($direction == 3) {
+    transform: rotate(135deg);
+    bottom: $h / 3;
+  } @else if($direction == 4) {
+    transform: rotate(225deg);
+  } @else {
+    transform: rotate($direction);
+  }
+}
+
+
+
+/*** Triangle ***/
+/**
+ *  $direction:
+ *    1: ↑
+ *    2: →
+ *    3: ↓
+ *    4: ←
+ *	example:
+ *	.element {
+ *      @include artrianglerow($bdc: #000000);
+ *	}
+ */
+ @mixin triangle($bdw: 2px, $bdc: $colorPrimary, $direction: 1) {
+  @include wh(0);
+  border-width: $bdw;
+  border-style: solid;
+  border-color: transparent;
+
+  @if($direction == 1) {
+    border-top-color: $bdc;
+  }
+  @if($direction == 2) {
+    border-right-color: $bdc;
+  }
+  @if($direction == 3) {
+    border-bottom-color: $bdc;
+  }
+  @if($direction == 4) {
+    border-left-color: $bdc;
+  }
+}
+
+
+
+/*** Flexbox Setting ***/
+/**
+ *	example:
+ *	.element {
+ *      @include setFlex(center, center);
+ *	}
+ */
+ @mixin setFlex($align, $justify) {
+   display: flex;
+   align-items: $align;
+   justify-content: $justify;
+}
+
+
+
+/*** Text Indent ***/
+/**
+ *  有前綴符號或文字，但又需要文字對齊時使用
+ *	example:
+ *	.element {
+ *      @include textIndent(7px);
+ *	}
+ */
+ @mixin textIndent($size) {
+  width: calc(100% - #{$size});
+  text-indent: -$size;
+  transform: translateX($size);
+ }

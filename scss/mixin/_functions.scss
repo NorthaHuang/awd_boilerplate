@@ -12,3 +12,16 @@
  @function size($px) {
     @return $px / $rootFzNum + rem;
 }
+
+
+
+/*** Color Opacity ***/
+/**
+ *	example:
+ *	.element {
+ *      @include colorOpacity($colorWhite, 0.25);
+ *	}
+ */
+ @function colorOpacity($color, $opacity: $stdOpacity) {
+  @return rgba($color, $opacity);
+}

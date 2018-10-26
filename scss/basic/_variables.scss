@@ -3,9 +3,19 @@
 \*==================================================*/
 
 /*==================== Fonts ====================*/
-$fontStack: Helvetica, Arial, sans-serif, "微軟正黑體", "蘋果儷黑體", "新細明體";
-$rootFzNum: 16;
-$rootFz: $rootFzNum + px;
+$fontStack: Arial, Helvetica, sans-serif, "微軟正黑體", "蘋果儷黑體", "新細明體";
+$rootFz: 16px;
+
+
+
+/*==================== Color ====================*/
+/***** 主色系 *****/
+/***** 灰色系 *****/
+/***** 黑白 *****/
+$colorWhite: #FFFFFF;
+$colorBlack: #000000;
+
+
 
 /*==================== Duration ====================*/
 $stdDuration: 300ms;

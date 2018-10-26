@@ -1,22 +1,11 @@
-@charset "UTF-8";
-/*========== Basic ==========*/
-@import "basic/_reset";
-@import "basic/_variables";
-
-/*========== Mixin ==========*/
-@import "mixin/_mixins";
-@import "mixin/_functions";
-
-/*========== Modules ==========*/
-@import "modules/_mods";
+@import "init";
 
 /*========== Includes ==========*/
-@import "includes/_site_header";
-@import "includes/_site_footer";
-@import "includes/_loading";
+@import "includes/loading";
+@import "includes/page_header";
+@import "includes/page_footer";
 
-/*========== Lightbox ==========*/
-@import "lightbox/_lightbox";
+
 
 /*========== layout ==========*/
-@import "layout/_common";
+@import "layout/common";

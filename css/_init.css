@@ -1,0 +1,405 @@
+@charset "UTF-8";
+/*========== Mixin ==========*/
+/*==================================================*\
+        Mixins
+\*==================================================*/
+/*** Pseudo Class ***/
+/** 
+ * div:after{
+ *     @include pseudo;
+ *     top: -1rem; left: -1rem;
+ *     width: 1rem; height: 1rem;
+ * }
+ */
+/*** Media Queries (Mobile First) ***/
+/**
+ * .site-header {
+ *     padding: 2rem;
+ *     font-size: 1.8rem;
+ *
+ *     @include mq('tablet-wide') {
+ *         padding-top: 4rem;
+ *         font-size: 2.4rem;
+ *     }
+ * }
+ */
+/*** Input Placeholder Style ***/
+/**
+ * input,  
+ * textarea {  
+ *     @include placeholderStyle {
+ *         color: $grey;
+ *     }
+ * }
+ */
+/*** Responsive Ratio ***/
+/**
+ * .ifr-wrap{
+ *     @include responsive-ratio(16,9);
+ * }
+ */
+/*** z-index Setting ***/
+/**
+ * example:
+ * .site-header {
+ *     z-index: z("lightbox");
+ * }
+ */
+/*** CSS Triangle ***/
+/**
+ *	used for creating CSS only triangles
+ *	example:
+ *	.element {
+ *		&::before {
+ *			@include css-triangle(blue, down);
+ *		}
+ *	}
+ */
+/*** Width && Height ***/
+/**
+ *	example:
+ *	.element {
+ *      @include wh(100%);
+ *	}
+ */
+/*** Full Page Popup ***/
+/**
+ *	example:
+ *	.element {
+ *      @include fullPopup();
+ *	}
+ */
+/*** Arrow ***/
+/**
+ *  $direction:
+ *    1: ↑
+ *    2: →
+ *    3: ↓
+ *    4: ←
+ *	example:
+ *	.element {
+ *      @include arrow($bdc: #000000);
+ *	}
+ */
+/*** Triangle ***/
+/**
+ *  $direction:
+ *    1: ↑
+ *    2: →
+ *    3: ↓
+ *    4: ←
+ *	example:
+ *	.element {
+ *      @include artrianglerow($bdc: #000000);
+ *	}
+ */
+/*** Flexbox Setting ***/
+/**
+ *	example:
+ *	.element {
+ *      @include setFlex(center, center);
+ *	}
+ */
+/*** Text Indent ***/
+/**
+ *  有前綴符號或文字，但又需要文字對齊時使用
+ *	example:
+ *	.element {
+ *      @include textIndent(7px);
+ *	}
+ */
+/*==================================================*\
+        Functions
+\*==================================================*/
+/*** PX to REM ***/
+/**
+ * example:
+ * .site-header {
+ *     z-index: z("lightbox");
+ * }
+ */
+/*** Color Opacity ***/
+/**
+ *	example:
+ *	.element {
+ *      @include colorOpacity($colorWhite, 0.25);
+ *	}
+ */
+/*========== Basic ==========*/
+/*==================================================*\
+        Browser Style Reset
+\*==================================================*/
+/*
+ * http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+abbr, acronym, address, big, cite, code, del,
+dfn, em, font, img, ins, kbd, q, s, samp, small,
+strike, sub, sup, tt, var, b, u, i, center, dl,
+dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+button, select, option, input, label, textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+ins {
+  text-decoration: none; }
+
+del {
+  text-decoration: line-through; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none; }
+
+main {
+  display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  display: block; }
+
+img {
+  width: auto;
+  max-width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block; }
+
+*:focus {
+  outline: 0; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:before, *:after {
+  pointer-events: none; }
+
+button,
+select,
+input,
+label,
+textarea {
+  border-radius: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  resize: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: -10;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+button,
+select,
+label {
+  cursor: pointer; }
+
+select::-ms-expand {
+  display: none; }
+
+/*==================================================*\
+        SCSS Variables
+\*==================================================*/
+/*==================== Fonts ====================*/
+/*==================== Color ====================*/
+/***** 主色系 *****/
+/***** 灰色系 *****/
+/***** 黑白 *****/
+/*==================== Duration ====================*/
+/*========== Modules ==========*/
+/*==================================================*\
+        Modules Common Style
+\*==================================================*/
+/*
+ * 目錄：
+ *   1. Close Btn
+ *   2. Hamburger
+ */
+/*==================== Close Btn ====================*/
+/*
+ * 自行設定於 全域(此處) 或 私用(自訂) 需定義：
+ *   1. ._mod_closeBtn { "寬高" }
+ *   2. ._mod_closeBtn:before, 
+ *      ._mod_closeBtn:after { "線條高度"、"線條顏色" }
+ */
+._mod_closeBtn {
+  cursor: pointer;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0); }
+  ._mod_closeBtn:before, ._mod_closeBtn:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    bottom: 0; }
+  ._mod_closeBtn:before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  ._mod_closeBtn:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+
+/***** Hover: ._mod_closeBtn *****/
+@media only screen and (min-width: 768px) {
+  .closeLbBtn:before, .closeLbBtn:after {
+    -webkit-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms; }
+  .closeLbBtn:hover:before {
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg); }
+  .closeLbBtn:hover:after {
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg); } }
+
+/*==================== Hamburger ====================*/
+/*
+ * HTML at "/includes/_site_header.html" 中加入:
+ * <div class="hamburger">
+ *     <div></div>
+ *     <div></div>
+ *     <div></div>
+ * </div>
+ *
+ * 自行設定於 全域(此處) 或 私用(自訂) 需定義:
+ *   1. .hamburger { "寬高" }
+ *   2. .hamburger div { "線條高度" }
+ *   3. .hamburger div:before,
+ *      .hamburger div:after { "線條顏色" }
+ */
+.hamburger {
+  cursor: pointer;
+  /* 可於 _mods.scss 選擇欲 @extend 之 hover樣式 */ }
+  .hamburger,
+  .hamburger div {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  .hamburger div {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    left: 0; }
+    .hamburger div:before, .hamburger div:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%; }
+    .hamburger div:first-child {
+      top: 0; }
+    .hamburger div:nth-child(2) {
+      top: 0;
+      bottom: 0; }
+    .hamburger div:last-child {
+      bottom: 0; }
+  @media only screen and (min-width: 768px) {
+    .hamburger {
+      display: none; } }
+
+/*========== Lightbox ==========*/
+/*==================================================*\
+        Lightbox
+\*==================================================*/
+.lightbox {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.78);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
+  z-index: 1; }
+  .lightbox svg path {
+    fill: #FFFFFF; }
+
+.lbLoading {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.lbContainer {
+  z-index: 1;
+  position: relative; }
+
+.lbContent {
+  display: none;
+  background-color: #FFFFFF; }
+
+.closeLbBtn {
+  /* 請設定寬高 */
+  width: 50px;
+  height: 50px;
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  /* 可於 _mods.scss 選擇欲 @extend 之 hover樣式 */ }
+  .closeLbBtn:before, .closeLbBtn:after {
+    height: 4px;
+    border-radius: 100px;
+    background-color: #FFFFFF; }
