@@ -1,7 +1,7 @@
 (function () {
-  'use strict'; // 採用嚴格模式
-
-  /*==================== Vaiables ====================*/
+  /*==================================================*\
+          Variables
+  \*==================================================*/
   // Constant
   var STD_DURATION = 300;
 
@@ -19,17 +19,17 @@
     defaultType: '.html',
     // 下載完畢後要進入的正式 Function 名稱
     callbackFunc: mainFunc,
-    loadingDOMName: '.loading',
+    loadingDOMName: '.page-loading',
     includesList: [
       {
         target: 'header',
-        fileName: '_page_header',
+        fileName: '_page-header',
         // type: '.html',  //  除非和 Default值 不同，不然不用寫
         callback: function() {}
       },
       {
         target: 'footer',
-        fileName: '_page_footer',
+        fileName: '_page-footer',
         // type: '.html',  //  除非和 Default值 不同，不然不用寫
         callback: function() {}
       }
@@ -110,11 +110,12 @@
           Main Function
   \*==================================================*/
   function mainFunc() {
-    /*==================== Initialization ====================*/
+    /*========== Initialization ==========*/
     console.log('%cBuild Completed!', logSafeStyle);
-    
-    // Resize
+    // Window Resize
     $win.on('resize', _resize).resize();
+    // Window Scroll
+    $win.on('scroll', _scroll).scroll();
 
     /* Start Coding Here */
   }
@@ -124,8 +125,9 @@
 
 
   /*==================================================*\
-                      $Library
+          $Library
   \*==================================================*/
+  /*========== Window Resize ==========*/
   function _resize() {
     getSize();
   }
@@ -133,5 +135,10 @@
   function getSize() {
     winW = $win.width();
     winH = $win.height();
+  }
+
+  /*========== Window Scroll ==========*/
+  function _scroll() {
+    
   }
 })();

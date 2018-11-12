@@ -1,73 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 
 <head>
+  <!-- Basic Data -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+  <!-- Meta Data -->
   <title>Your Title</title>
+  <!-- <link rel="icon" type="image/ico" href="images/favicon.ico" /> -->
+  <!-- <meta name="keywords" content="網頁關鍵字">
+  <meta name="description" content="網頁描述">
+  <meta name="author" content="作者姓名">
+  <meta name="og:title" content="分享標題">
+  <meta name="og:description" content="網頁描述">
+  <meta name="og:type" content="website">
+  <meta name="og:image" content="分享圖檔絕對位置 (1200x630)"> -->
+  
 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
-    <link rel="stylesheet" href="css/slick.min.css" />
-    <link rel="stylesheet" href="css/slick-theme.min.css" /> -->
-  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="stylesheet" href="css/main.min.css" />
 
   <!-- JS Plugins -->
-  <script type="text/javascript" src="js.lib/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js.lib/imagesloaded.js"></script>
-  <!-- <script type="text/javascript" src="js.lib/youtube_api.js"></script>
-  <script type="text/javascript" src="js.lib/lightbox.js"></script> -->
-
-  <!-- Favicon  -->
-  <!-- <link rel="icon" type="image/ico" href="images/favicon.ico" /> -->
+  <script src="js.lib/jquery-3.3.1.min.js"></script>
+  <script src="js.lib/imagesloaded.js"></script>
+  <!--
+    使用 Slick or mCustomScrollbar
+    記得在 main.scss 加入 vender 系列
+  -->
 </head>
 
-<body>
+<body class="index-page">  <!-- <body> class 依頁面命名 -->
   <!-- Loading -->
-  <div class="loading">
-    <div class="ldContainer">
-      <div>G</div>
-      <div>N</div>
-      <div>I</div>
-      <div>D</div>
-      <div>A</div>
-      <div>O</div>
-      <div>L</div>
-    </div>
-  </div>
+  <div class="page-loading"></div>
 
-  <!-- Header, Source: "includes/_header.html" -->
+  <!-- Header, Source: "includes/_page_header.html" -->
   <header class="page-header"></header>
 
   <!--========== Main Container ==========-->
-  <main>
-    <!-- Start Coding Here -->
-  </main>
+  <main></main>
 
-  <!-- Footer, Source: "includes/_footer.html" -->
+  <!-- Footer, Source: "includes/_page_footer.html" -->
   <footer class="page-footer"></footer>
 
 
-  <!--========== Javascript ==========-->
-  <!-- Global Vaiables -->
-  <script type="text/javascript">
-    // Window, Document
-    var $win = $(window);
-    var winW;
-    var winH;
-    var $doc = $('html, body');
-    var $body = $('body');
 
-    // console.log Style
-    var logSafeStyle = 'color: green; font-weight: bold;';
-    var logErrorStyle = 'color: red; font-weight: bold;';
-    var logInfoStyle = 'color: blue;';
-  </script>
-  <script type="text/javascript" src="js/script.js"></script>
-
-  <!-- IE9 以下，提醒使用者 更新 / 切換瀏覽器 -->
-  <!--[if lt IE 9]><h1 class="forIE8Less" style="margin-top:100px;text-align:center;">本網頁不支援 IE9 以下版本，請更新瀏覽器版本或建議使用 Chrome 瀏覽器。</h1><style>body>*{display: none;}.forIE8Less{display:block;}</style><![endif]-->
+  <!--========== Custom Javascript ==========-->
+  <script src="js/global_vars.js"></script>  <!-- Global Vaiables -->
+  <script src="js.lib/lightbox.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

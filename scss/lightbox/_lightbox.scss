@@ -3,9 +3,9 @@
 \*==================================================*/
 
 .lightbox {
-  @include fullPopup(rgba(0, 0, 0, 0.78));
+  @include full-popup(rgba(0, 0, 0, 0.78));
   opacity: 0;
-  transition: all $stdDuration;
+  transition: all $duration-std;
   z-index: z("lightbox");
 
   svg path {
@@ -13,7 +13,7 @@
   }
 }
 
-.lbLoading {
+.lb-container {
   @include wh(40px);
   margin: auto;
   z-index: 0;
@@ -23,20 +23,20 @@
 }
 
 // Content Container
-.lbContainer {
+.lb-container {
   z-index: 1;
   position: relative;
 }
 
 // Lightbox Content
-.lbContent {
-  display: none;
+.lb-content {
+  opacity: 0;
   background-color: #FFFFFF;
 }
 
 // Button: Close Lightbox
-.closeLbBtn {
-  /* 請設定寬高 */
+.lb-close-btn {
+  @extend %mod_close-btn;
   @include wh(50px);
   display: none;
   position: absolute;
@@ -51,5 +51,5 @@
   }
 
   /* 可於 _mods.scss 選擇欲 @extend 之 hover樣式 */
-  @extend %closeBtnHover1;
+  @extend %close-btn-hover-1;
 }

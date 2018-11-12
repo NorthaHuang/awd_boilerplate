@@ -6,11 +6,24 @@
 /**
  * example:
  * .site-header {
- *     z-index: z("lightbox");
+ *     width: size-rem(500);
  * }
  */
- @function size($px) {
-    @return $px / $rootFzNum + rem;
+ @function size-rem($px) {
+  @return ($px / $rootFz) + rem;
+}
+
+
+
+/*** PX to vw ***/
+/**
+ * example:
+ * .site-header {
+ *     width: size-vw(500);
+ * }
+ */
+@function size-vw($px, $vw: 768) {
+  @return ($px / $vw * 100) + vw;
 }
 
 
@@ -22,6 +35,6 @@
  *      @include colorOpacity($colorWhite, 0.25);
  *	}
  */
- @function colorOpacity($color, $opacity: $stdOpacity) {
+ @function color-opacity($color, $opacity: $stdOpacity) {
   @return rgba($color, $opacity);
 }
